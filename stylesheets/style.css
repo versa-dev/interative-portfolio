@@ -4,6 +4,8 @@ a {
 
 #balloon {
     position: absolute;
+    left:6000px;
+    bottom: 0;
     width: 400px;
     height: 700px;
     background-image:url(../images/balloon.png)
@@ -650,21 +652,67 @@ body {
     display:none
 }
 
+#dock-sea-container {
+    position: absolute;
+    bottom:0;
+    width: 7680px;
+    height: 20%;
+}
+
 #dock-column, #dock-floor {
     position: absolute;
-    left: 19530px;
-    top: 80%;
+    left: 0px;
+    top: 0%;
     width:2970px
 }
 
 #dock-floor {
     height: 50px;
+    width: 7680px;
     background-image:url(../images/dock-floor.png)
 }
 
 #dock-column {
-    height: 20%;
+    height: 100%;
+    width: 7680px;
     background-image:url(../images/dock-column.png)
+}
+
+.sea {
+    position: absolute;
+    width: 7680px;
+    top:50%;
+    bottom: 0px;
+}
+
+#sea-1 {
+    left: 8100px;
+    width: 5220px;
+    height:80%
+}
+
+#sea-2 {
+    left: 0px;
+    width: 7680px;
+    bottom: 0px;
+    background-color:#0072bc
+}
+
+.sea-wave {
+    position: absolute;
+    width: 7680px;
+    bottom: 50%;
+    height: 6px;
+    background-image:url(../images/sea-wave.png)
+}
+
+#sea-wave-1 {
+    left: 8100px;
+    width:5220px
+}
+
+#sea-wave-2 {
+    left: 0px;
 }
 
 #elevation-1, #elevation-2 {
@@ -982,7 +1030,7 @@ body {
 
 .gate {
     position: absolute;
-    bottom: 20%;
+    bottom: 0%;
     width: 320px;
     height: 300px;
     background-image:url(../images/gate.png)
@@ -1001,7 +1049,7 @@ body {
 }
 
 #gate-4 {
-    left:0px
+    left:0px;
 }
 
 .gate-text {
@@ -1051,6 +1099,7 @@ body {
 
 #ground-and-grass-container-2 {
     position: absolute;
+    left: 6520px;
     right: 0;
     bottom: 0;
     width: 1160px;
@@ -1691,7 +1740,17 @@ img {
 #preloader-banner-container {
     position: absolute;
     left: 50%;
-    top:50%
+    top:50%;
+    animation: loading 1.5s 1;
+    animation-direction: alternate;
+}
+@keyframes loading {
+    0% {top: 50%;}
+    20% {top: 50%;}
+    100% {top: -120px;}
+}
+
+#static-background {
 }
 
 #preloader-banner-left {
@@ -1901,24 +1960,6 @@ img {
     left:460px
 }
 
-.sea {
-    position: absolute;
-    top:90%
-}
-
-#sea-1 {
-    left: 8100px;
-    width: 5220px;
-    height:80%
-}
-
-#sea-2 {
-    left: 19530px;
-    width: 2970px;
-    height: 10%;
-    background-color:#0072bc
-}
-
 #sea-floor {
     position:absolute
 }
@@ -1982,23 +2023,6 @@ img {
     height: 40px;
     margin-left: -1px;
     background-image:url(../images/sea-ribbon-right.png)
-}
-
-.sea-wave {
-    position: absolute;
-    bottom: 10%;
-    height: 6px;
-    background-image:url(../images/sea-wave.png)
-}
-
-#sea-wave-1 {
-    left: 8100px;
-    width:5220px
-}
-
-#sea-wave-2 {
-    left: 19530px;
-    width:2970px
 }
 
 #skill-1-container {
@@ -2202,7 +2226,7 @@ img {
 #title-about, #title-awards-and {
     position: absolute;
     left: 0px;
-    bottom: 20%;
+    bottom: 0%;
     width: 800px;
     height: 400px;
     background-image:url(../images/title-about.png)
@@ -2244,7 +2268,7 @@ img {
 #title-publication, #title-robby {
     position: absolute;
     left: 340px;
-    bottom: 20%;
+    bottom: 0%;
     width: 1180px;
     height: 300px;
     background-image:url(../images/title-publication.png)
@@ -2528,18 +2552,22 @@ img {
 }
 
 #waterfall-1 {
-    background-image:url(../images/waterfall-a.png)
+    background-image:url(../images/waterfall-a.png);
 }
 
 #waterfall-2 {
-    background-image:url(../images/waterfall-b.png)
+    background-image:url(../images/waterfall-b.png);
+    opacity: 0;
 }
 
-.window {
+#contact-cloud {
+    display: none;
+}
+#vertical-layer {
     position: absolute;
-    width: 190px;
-    height: 110px;
-    background-image: url(../images/window.png)
+    bottom: 20%;
+    height: 80%;
+    width: 100%;
 }
 
 
