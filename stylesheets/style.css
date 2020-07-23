@@ -1750,9 +1750,6 @@ img {
     100% {top: -120px;}
 }
 
-#static-background {
-}
-
 #preloader-banner-left {
     position: absolute;
     left: 0;
@@ -1821,7 +1818,16 @@ img {
 #robby-container {
     position: absolute;
     left: 50%;
-    bottom:100%
+    bottom:100%;
+    animation: droping 6s 1;
+    animation-direction: alternate;
+}
+
+@keyframes droping {
+    0% {bottom: 100%;}
+    25% {bottom: 100%;}
+    35% {bottom: 0%;}
+    100% {bottom: 0%;}
 }
 
 #robby-eyes-close, #robby-slides {
@@ -1831,6 +1837,10 @@ img {
     width: 55px;
     height: 25px;
     background-image:url(../images/robby-eyes-close.png)
+}
+
+#robby-eyes-close{
+    opacity: 0;
 }
 
 #robby-slides {
@@ -2570,4 +2580,7 @@ img {
     width: 100%;
 }
 
-
+#static-background {
+    left: 0;
+    overflow: hidden;
+}
