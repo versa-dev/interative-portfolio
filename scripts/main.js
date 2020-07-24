@@ -23,12 +23,14 @@ function balloon_position() {
 
 // banner animation when preloading
 function loading(){
+    setTimeout(() => {
 
+    }, 300);
     setTimeout(() => {
         preloaderDiv.style.top = '0px';
         preloaderDiv.style.marginTop = '-115px';
         staticDiv.style.bottom = '0px';
-    }, 1450);
+    }, 2450);
 }
 
 // robby animation when loading
@@ -41,7 +43,8 @@ function robby_drop() {
 
 // add the onwheel event function
 window.onwheel = horizon;
-function horizon(event) {
+
+function horizon(event) {  /////// onwheel event function for horizontal move
     
     var splash_left = splashDiv.offsetLeft;
     var dock_left = dockDiv.offsetLeft;
@@ -88,7 +91,7 @@ function horizon(event) {
     }
 }
 
-function vertical(event) {
+function vertical(event) {    /////////// onwheel event function for vertical move
 
 }
 

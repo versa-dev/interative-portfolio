@@ -1747,12 +1747,12 @@ img {
     position: absolute;
     left: 50%;
     top:50%;
-    animation: loading 1.5s 1;
+    animation: loading 2.5s 1;
     animation-direction: alternate;
 }
 @keyframes loading {
     0% {top: 50%;}
-    20% {top: 50%;}
+    30% {top: 50%;}
     100% {top: -120px;}
 }
 
@@ -1831,8 +1831,8 @@ img {
 
 @keyframes droping {
     0% {bottom: 100%;}
-    25% {bottom: 100%;}
-    35% {bottom: 0%;}
+    40% {bottom: 100%;}
+    55% {bottom: 0%;}
     100% {bottom: 0%;}
 }
 
