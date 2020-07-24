@@ -23,9 +23,9 @@ function robby_drop() {
         robbycontainerDiv.style.bottom = '0';
     }, 2950);
 }
-var zoom_rate = 1920/document.body.clientWidth;
-console.log(zoom_rate)
+balloonDiv.style.left = 7480 - document.body.clientWidth/2 + "px";
 function robbyMove(event) {
+    
     var splash_left = splashDiv.offsetLeft;
     var dock_left = dockDiv.offsetLeft;
     var waterfall_left = waterfallDiv.offsetLeft;
@@ -62,10 +62,17 @@ function robbyMove(event) {
     dockDiv.style.left = dock_left + "px";    
     waterfallDiv.style.left = waterfall_left + "px";
     balloonDiv.style.left = balloon_left + "px";
+    
 }
 
 contentDiv.onwheel = robbyMove;
-
+// contentDiv.onwheel = balloon_position;
+window.addEventListener("resize", balloon_position);
+function balloon_position() {
+    console.log(document.body.clientWidth,balloonDiv.offsetLeft)
+    balloonDiv.style.left = 7480 - document.body.clientWidth/2 + "px";
+    console.log(balloonDiv.offsetLeft)
+}
 
 setInterval(() => {
     if(waterfallDiv2.style.opacity == 1) {
