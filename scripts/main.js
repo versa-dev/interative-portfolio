@@ -41,8 +41,8 @@ function robbyMove(event) {
         }
         y = 0;
     }
-    else if (dock_left <= ((-7680+document.body.clientWidth)) && event.deltaY > 0 ) {
-        if (dock_left < (-7680+document.body.clientWidth)) {
+    else if (dock_left <= ((-7680 + document.body.clientWidth)) && event.deltaY > 0 ) {
+        if (dock_left < (-7680 + document.body.clientWidth)) {
             var dis = -7680 + document.body.clientWidth - dock_left;
             dock_left += dis;
             waterfall_left += dis;
@@ -65,12 +65,13 @@ function robbyMove(event) {
     
 }
 
-contentDiv.onwheel = robbyMove;
+// contentDiv.onwheel = robbyMove;
 // contentDiv.onwheel = balloon_position;
+window.onwheel = robbyMove;
 window.addEventListener("resize", balloon_position);
 function balloon_position() {
     console.log(document.body.clientWidth,balloonDiv.offsetLeft)
-    balloonDiv.style.left = 7480 - document.body.clientWidth/2 + "px";
+    balloonDiv.style.left = 7480 + dockDiv.offsetLeft - document.body.clientWidth/2 + "px";
     console.log(balloonDiv.offsetLeft)
 }
 
