@@ -4,7 +4,7 @@ a {
 
 #balloon {
     position: absolute;
-    left:6000px;
+    left: 5700px;
     bottom: 0;
     width: 400px;
     height: 700px;
@@ -67,7 +67,8 @@ a {
 #banners-container, #boxes {
     position: absolute;
     left: 15%;
-    width:520px
+    width:520px;
+    bottom: 0%;
 }
 
 .banner-middle-a, .banner-middle-b {
@@ -1194,6 +1195,10 @@ img {
 
 #layer-vertical-2 {
     height:6000px
+}
+
+#layer-vertical-3 {
+    bottom: 3880px;
 }
 
 .mountain {
