@@ -10,7 +10,20 @@ var robbyeyecloseDiv = document.getElementById("robby-eyes-close");
 var waterfallDiv = document.getElementById("ground-and-grass-container-2");
 var balloonDiv = document.getElementById("balloon");
 
+// set the balloon position when screen resize
+balloonDiv.style.left = 7480 - document.body.clientWidth/2 + "px";
+window.addEventListener("resize", balloon_position);
+function balloon_position() {
+    console.log(document.body.clientWidth,balloonDiv.offsetLeft)
+    balloonDiv.style.left = 7480 + dockDiv.offsetLeft - document.body.clientWidth/2 + "px";
+    console.log(balloonDiv.offsetLeft)
+}
+
+// window.scrollTo(0, 0);
+
+// banner animation when preloading
 function loading(){
+
     setTimeout(() => {
         preloaderDiv.style.top = '0px';
         preloaderDiv.style.marginTop = '-115px';
@@ -18,13 +31,17 @@ function loading(){
     }, 1450);
 }
 
+// robby animation when loading
 function robby_drop() {
     setTimeout(() => {
         robbycontainerDiv.style.bottom = '0';
     }, 2950);
 }
-balloonDiv.style.left = 7480 - document.body.clientWidth/2 + "px";
-function robbyMove(event) {
+// window.scrollTo(0, 0);
+
+// add the onwheel event function
+window.onwheel = horizon;
+function horizon(event) {
     
     var splash_left = splashDiv.offsetLeft;
     var dock_left = dockDiv.offsetLeft;
@@ -62,19 +79,20 @@ function robbyMove(event) {
     dockDiv.style.left = dock_left + "px";    
     waterfallDiv.style.left = waterfall_left + "px";
     balloonDiv.style.left = balloon_left + "px";
-    
+    console.log(document.body.clientWidth/2, balloonDiv.offsetLeft+balloonDiv.offsetWidth/2)
+    if (event.deltaY < 0 && Math.abs(document.body.clientWidth/2 - balloonDiv.offsetWidth/2 - balloonDiv.offsetLeft) <= 0.5) {
+        window.onwheel = vertical;
+    }
+    else {
+        window.onwheel = horizon;
+    }
 }
 
-// contentDiv.onwheel = robbyMove;
-// contentDiv.onwheel = balloon_position;
-window.onwheel = robbyMove;
-window.addEventListener("resize", balloon_position);
-function balloon_position() {
-    console.log(document.body.clientWidth,balloonDiv.offsetLeft)
-    balloonDiv.style.left = 7480 + dockDiv.offsetLeft - document.body.clientWidth/2 + "px";
-    console.log(balloonDiv.offsetLeft)
+function vertical(event) {
+
 }
 
+// waterfall flow animation
 setInterval(() => {
     if(waterfallDiv2.style.opacity == 1) {
         waterfallDiv2.style.opacity = 0;
@@ -84,6 +102,7 @@ setInterval(() => {
     }
 }, 500);
 
+// robby eye animation
 setInterval(() => {
     robbyeyecloseDiv.style.opacity = 1;
     setTimeout(() => {

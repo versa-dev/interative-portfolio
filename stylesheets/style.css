@@ -98,7 +98,8 @@ a {
 
 body {
     margin: 0;
-    background-color:#00bff3
+    background-color:#00bff3;
+    /* overflow: hidden; */
 }
 
 #boxes {
