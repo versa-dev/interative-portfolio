@@ -99,7 +99,7 @@ a {
 body {
     margin: 0;
     background-color:#00bff3;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 #boxes {
@@ -1832,7 +1832,7 @@ img {
 @keyframes droping {
     0% {bottom: 100%;}
     40% {bottom: 100%;}
-    55% {bottom: 0%;}
+    50% {bottom: 0%;}
     100% {bottom: 0%;}
 }
 

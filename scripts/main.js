@@ -14,9 +14,12 @@ var balloonDiv = document.getElementById("balloon");
 balloonDiv.style.left = 7480 - document.body.clientWidth/2 + "px";
 window.addEventListener("resize", balloon_position);
 function balloon_position() {
-    console.log(document.body.clientWidth,balloonDiv.offsetLeft)
+    // console.log(document.body.clientWidth,balloonDiv.offsetLeft)
     balloonDiv.style.left = 7480 + dockDiv.offsetLeft - document.body.clientWidth/2 + "px";
-    console.log(balloonDiv.offsetLeft)
+    console.log(balloonDiv.offsetLeft, robbycontainerDiv.offsetLeft)
+    // if (balloonDiv.offsetLeft <= robbycontainerDiv.offsetLeft ) {
+        
+    // }
 }
 
 // window.scrollTo(0, 0);
@@ -92,7 +95,20 @@ function horizon(event) {  /////// onwheel event function for horizontal move
 }
 
 function vertical(event) {    /////////// onwheel event function for vertical move
+    
+    var splash_top = splashDiv.offsetTop;
+    var dock_top = dockDiv.offsetTop;
+    var waterfall_top = waterfallDiv.offsetTop;
+    var balloon_top = balloonDiv.offsetTop;
+    var y1;
 
+    if (event.deltaY > 0) {
+        
+    }
+    else {
+
+    }
+    
 }
 
 // waterfall flow animation
