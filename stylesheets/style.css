@@ -68,7 +68,7 @@ a {
     position: absolute;
     left: 15%;
     width:520px;
-    bottom: 0%;
+    bottom: 100%;
 }
 
 .banner-middle-a, .banner-middle-b {
@@ -374,7 +374,7 @@ body {
 #contact-cloud {
     position: absolute;
     left: 0;
-    bottom: 101%;
+    top: -112%;
     width: 100%;
     height: -webkit-fill-available;
 }
