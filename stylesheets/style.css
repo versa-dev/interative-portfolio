@@ -371,6 +371,14 @@ body {
     bottom:20%
 }
 
+#contact-cloud {
+    position: absolute;
+    left: 0;
+    bottom: 101%;
+    width: 100%;
+    height: -webkit-fill-available;
+}
+
 #contact-cloud-bottom {
     position: absolute;
     left: 0;
@@ -2126,6 +2134,7 @@ img {
 
 #social-container {
     position: absolute;
+    top: -100%;
     width: 120px;
     left:85%
 }
@@ -2576,9 +2585,6 @@ img {
     opacity: 0;
 }
 
-#contact-cloud {
-    display: none;
-}
 #vertical-layer {
     position: absolute;
     bottom: 20%;

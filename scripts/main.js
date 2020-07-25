@@ -10,19 +10,36 @@ var robbyeyecloseDiv = document.getElementById("robby-eyes-close");
 var waterfallDiv = document.getElementById("ground-and-grass-container-2");
 var balloonDiv = document.getElementById("balloon");
 
-// set the balloon position when screen resize
-balloonDiv.style.left = 7480 - document.body.clientWidth/2 + "px";
+
+balloonDiv.style.left = 7480 - document.body.clientWidth/2 + "px";          // set the balloon position when screen resize
 window.addEventListener("resize", balloon_position);
+window.onwheel = horizon;           // add the onwheel event function
+
+// waterfall flow animation
+setInterval(() => {
+    if(waterfallDiv2.style.opacity == 1) {
+        waterfallDiv2.style.opacity = 0;
+    }   else {
+        waterfallDiv2.style.opacity = 1;
+    }
+}, 500);
+
+// robby eye animation
+setInterval(() => {
+    robbyeyecloseDiv.style.opacity = 1;
+    setTimeout(() => {
+        robbyeyecloseDiv.style.opacity = 0;
+    }, 300);
+}, 3000); 
+
+loading();
+robby_drop();
+
+
 function balloon_position() {
-    // console.log(document.body.clientWidth,balloonDiv.offsetLeft)
     balloonDiv.style.left = 7480 + dockDiv.offsetLeft - document.body.clientWidth/2 + "px";
     console.log(balloonDiv.offsetLeft, robbycontainerDiv.offsetLeft)
-    // if (balloonDiv.offsetLeft <= robbycontainerDiv.offsetLeft ) {
-        
-    // }
 }
-
-// window.scrollTo(0, 0);
 
 // banner animation when preloading
 function loading(){
@@ -42,12 +59,8 @@ function robby_drop() {
         robbycontainerDiv.style.bottom = '0';
     }, 2950);
 }
-// window.scrollTo(0, 0);
 
-// add the onwheel event function
-window.onwheel = horizon;
-
-function horizon(event) {  /////// onwheel event function for horizontal move
+function horizon(event) {  /* onwheel event function for horizontal move */
     
     var splash_left = splashDiv.offsetLeft;
     var dock_left = dockDiv.offsetLeft;
@@ -63,8 +76,7 @@ function horizon(event) {  /////// onwheel event function for horizontal move
             splash_left =0;
         }
         y = 0;
-    }
-    else if (dock_left <= ((-7680 + document.body.clientWidth)) && event.deltaY > 0 ) {
+    }   else if (dock_left <= ((-7680 + document.body.clientWidth)) && event.deltaY > 0 ) {
         if (dock_left < (-7680 + document.body.clientWidth)) {
             var dis = -7680 + document.body.clientWidth - dock_left;
             dock_left += dis;
@@ -73,8 +85,7 @@ function horizon(event) {  /////// onwheel event function for horizontal move
             splash_left += dis;
         }
         y = 0;
-    }
-    else {
+    }   else {
         y = event.deltaY;
     }
     balloon_left -= y;
@@ -88,13 +99,12 @@ function horizon(event) {  /////// onwheel event function for horizontal move
     console.log(document.body.clientWidth/2, balloonDiv.offsetLeft+balloonDiv.offsetWidth/2)
     if (event.deltaY < 0 && Math.abs(document.body.clientWidth/2 - balloonDiv.offsetWidth/2 - balloonDiv.offsetLeft) <= 0.5) {
         window.onwheel = vertical;
-    }
-    else {
+    }   else {
         window.onwheel = horizon;
     }
 }
 
-function vertical(event) {    /////////// onwheel event function for vertical move
+function vertical(event) {    /* onwheel event function for vertical move */
     
     var splash_top = splashDiv.offsetTop;
     var dock_top = dockDiv.offsetTop;
@@ -104,32 +114,8 @@ function vertical(event) {    /////////// onwheel event function for vertical mo
 
     if (event.deltaY > 0) {
         
-    }
-    else {
+    }   else {
 
     }
     
 }
-
-// waterfall flow animation
-setInterval(() => {
-    if(waterfallDiv2.style.opacity == 1) {
-        waterfallDiv2.style.opacity = 0;
-    }
-    else {
-        waterfallDiv2.style.opacity = 1;
-    }
-}, 500);
-
-// robby eye animation
-setInterval(() => {
-    robbyeyecloseDiv.style.opacity = 1;
-    setTimeout(() => {
-        robbyeyecloseDiv.style.opacity = 0;
-    }, 300);
-}, 3000); 
-
-loading();
-robby_drop();
-
-
