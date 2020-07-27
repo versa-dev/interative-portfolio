@@ -16,7 +16,7 @@ var bannerDiv = document.getElementById("banners-container");
 
 
 balloonDiv.style.left = 7480 - document.body.clientWidth/2 + "px";          /* set the balloon position when screen resize */
-cloudDiv.style.bottom = -bannerDiv.offsetTop + 3800 + "px";   
+cloudDiv.style.bottom = -bannerDiv.offsetTop + 3800 + "px";       /* set the position of the contact-cloud */
 console.log(cloudDiv.style.bottom, bannerDiv.offsetTop);
 window.addEventListener("resize", resize);
 window.onwheel = robby_move;           /* add the onwheel event function */
