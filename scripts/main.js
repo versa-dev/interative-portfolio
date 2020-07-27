@@ -16,9 +16,9 @@ var bannerDiv = document.getElementById("banners-container");
 
 
 balloonDiv.style.left = 7480 - document.body.clientWidth/2 + "px";          /* set the balloon position when screen resize */
-cloudDiv.style.bottom = bannerDiv.offsetTop + 50 + "px";
+cloudDiv.style.bottom = -bannerDiv.offsetTop + 3800 + "px";   
 console.log(cloudDiv.style.bottom, bannerDiv.offsetTop);
-window.addEventListener("resize", balloon_position);
+window.addEventListener("resize", resize);
 window.onwheel = robby_move;           /* add the onwheel event function */
 
 // waterfall flow animation
@@ -42,9 +42,9 @@ loading();
 robby_drop();
 
 
-function balloon_position() {
+function resize() {
     balloonDiv.style.left = 7480 + dockDiv.offsetLeft - document.body.clientWidth/2 + "px";
-    // console.log(balloonDiv.offsetLeft, robbycontainerDiv.offsetLeft);
+    cloudDiv.style.bottom = -bannerDiv.offsetTop + 3800 + "px";
 }
 
 // banner animation when preloading
@@ -95,13 +95,14 @@ function robby_move(event) {  /* onwheel event function for horizontal move */
         splashDiv.style.top = splash_top + "px";
         dockDiv.style.top = dock_top + "px";
         waterfallDiv.style.top = waterfall_top + "px";
-        cloudDiv.style.top = cloud_top + "px";
         bannerDiv.style.top = banner_top + "px";
+        cloudDiv.style.bottom = -bannerDiv.offsetTop + 3800 + "px";
         socialDiv.style.top = social_top + "px";
     } else {
         if (event.deltaY < 0 && splash_left >= 0){
             if (splash_left > 0) {
                 balloon_left -= splash_left;
+                waterfall_left -= splash_left;
                 waterfall_left -= splash_left;
                 dock_left -= splash_left;
                 splash_left =0;

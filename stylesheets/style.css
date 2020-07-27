@@ -374,7 +374,6 @@ body {
 #contact-cloud {
     position: absolute;
     left: 0;
-    top: -112%;
     width: 100%;
     height: -webkit-fill-available;
 }
