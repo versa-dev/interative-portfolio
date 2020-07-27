@@ -14,9 +14,13 @@ var socialDiv = document.getElementById("social-container");
 var fireworkDiv = document.getElementById("fireworks-container");
 var bannerDiv = document.getElementById("banners-container");
 
+var robby_flag = 0;
+var final;
+
+
 
 balloonDiv.style.left = 7480 - document.body.clientWidth/2 + "px";          /* set the balloon position when screen resize */
-cloudDiv.style.bottom = -bannerDiv.offsetTop + 3800 + "px";       /* set the position of the contact-cloud */
+cloudDiv.style.bottom = -bannerDiv.offsetTop + 3840 + "px";       /* set the position of the contact-cloud */
 console.log(cloudDiv.style.bottom, bannerDiv.offsetTop);
 window.addEventListener("resize", resize);
 window.onwheel = robby_move;           /* add the onwheel event function */
@@ -44,13 +48,12 @@ robby_drop();
 
 function resize() {
     balloonDiv.style.left = 7480 + dockDiv.offsetLeft - document.body.clientWidth/2 + "px";
-    cloudDiv.style.bottom = -bannerDiv.offsetTop + 3800 + "px";
+    cloudDiv.style.bottom = -bannerDiv.offsetTop + 3840 + "px";
 }
 
 // banner animation when preloading
 function loading(){
     setTimeout(() => {
-
     }, 300);
     setTimeout(() => {
         preloaderDiv.style.top = '0px';
@@ -78,26 +81,51 @@ function robby_move(event) {  /* onwheel event function for horizontal move */
     var balloon_top = balloonDiv.offsetTop;
     var cloud_top = cloudDiv.offsetTop;
     var banner_top = bannerDiv.offsetTop;
-    var social_top = socialDiv.offsetTop;
-    var firework_top = fireworkDiv.offsetTop;
     var y;
     var y1;
+    var i = 0;
     
-    if ((Math.abs(document.body.clientWidth/2 - balloonDiv.offsetWidth/2 - balloonDiv.offsetLeft) <= 1)) {
+    if (((Math.abs(document.body.clientWidth/2 - balloonDiv.offsetWidth/2 - balloonDiv.offsetLeft) <= 2)) && robby_flag != 0) {
         y1 = event.deltaY;
-        splash_top += y1;
-        dock_top += y1;
-        waterfall_top += y1/2;
-        cloud_top += y1;
-        banner_top += y1;
-        social_top += y1;
-        
-        splashDiv.style.top = splash_top + "px";
-        dockDiv.style.top = dock_top + "px";
-        waterfallDiv.style.top = waterfall_top + "px";
-        bannerDiv.style.top = banner_top + "px";
-        cloudDiv.style.bottom = -bannerDiv.offsetTop + 3800 + "px";
-        socialDiv.style.top = social_top + "px";
+        if (y1 > 0 && (cloudDiv.offsetTop >= -20)) {
+            if (robby_flag == 1) {
+                robby_flag = 2;
+                robbycontainerDiv.style.left = robbycontainerDiv.offsetLeft + 200 + "px";  
+                socialDiv.style.top = "0%"; /* add the animation of banner of social sites */
+                final = setInterval(() => {
+                    setTimeout(() => {
+                        document.getElementById("robby-slides").style.left = '0px';
+                    }, 300);
+                    document.getElementById("robby-slides").style.left = '-1600px';
+                    document.getElementById("robby-slides").style.top = "0px";
+                    robbyeyecloseDiv.style.left = "90px"; 
+                }, 2100);
+            }
+        } else if ((balloonDiv.offsetHeight + balloonDiv.offsetTop >=  dockDiv.offsetTop) && (y1 < 0) && (robby_flag == 1)) {
+            robby_flag = 0;
+            console.log('------')
+        } else if (robby_flag != 0){    
+            if ( y1 < 0 && robby_flag == 2) {
+                robby_flag = 1;
+                clearInterval(final);
+                document.getElementById("robby-slides").style.left = '0px';
+                robbycontainerDiv.style.left = robbycontainerDiv.offsetLeft - 200 + "px";
+            }
+            robby_flag = 1;
+            socialDiv.style.top = "100%";
+            splash_top += y1;
+            dock_top += y1;
+            waterfall_top += y1/2;
+            cloud_top += y1;
+            banner_top += y1;
+            
+            splashDiv.style.top = splash_top + "px";
+            dockDiv.style.top = dock_top + "px";
+            waterfallDiv.style.top = waterfall_top + "px";
+            bannerDiv.style.top = banner_top + "px";
+            cloudDiv.style.bottom = -bannerDiv.offsetTop + 3840 + "px";
+            // console.log(balloonDiv.offsetTop + balloonDiv.offsetHeight, dockDiv.offsetTop)
+        }
     } else {
         if (event.deltaY < 0 && splash_left >= 0){
             if (splash_left > 0) {
@@ -108,17 +136,39 @@ function robby_move(event) {  /* onwheel event function for horizontal move */
                 splash_left =0;
             }
             y = 0;
-        } else if (dock_left <= ((-7680 + document.body.clientWidth)) && event.deltaY > 0 ) {
+        } else if ((dock_left <= (-7680 + document.body.clientWidth)) && (event.deltaY > 0) ) {
             if (dock_left < (-7680 + document.body.clientWidth)) {
                 var dis = -7680 + document.body.clientWidth - dock_left;
                 dock_left += dis;
                 waterfall_left += dis;
                 balloon_left += dis;
-                splash_left += dis;
+                splash_left += dis;  
             }
+            robby_flag = 1;    
             y = 0;
         } else {
             y = event.deltaY;
+            if (y > 0) {
+                document.getElementById("robby-slides").style.left = '-200px';
+                document.getElementById("robby-slides").style.top = "0px";
+                robbyeyecloseDiv.style.left = "90px"; 
+                setTimeout(() => {
+                    document.getElementById("robby-slides").style.left = '-400px';
+                }, 300);
+                // document.getElementById("robby-slides").style.left = "0px";    
+            } else if (y < 0){
+                document.getElementById("robby-slides").style.left = "-200px";
+                document.getElementById("robby-slides").style.top = "-200px";
+                robbyeyecloseDiv.style.left = "54px";
+                setTimeout(() => {
+                    document.getElementById("robby-slides").style.top = "-200px";
+                    document.getElementById("robby-slides").style.left = '-400px';
+                    robbyeyecloseDiv.style.left = "54px";
+                }, 300);                 
+            } else {
+                document.getElementById("robby-slides").style.top = "0px"; 
+                document.getElementById("robby-slides").style.left = "0px";  
+            }
         }
         balloon_left -= y;
         waterfall_left -= y;

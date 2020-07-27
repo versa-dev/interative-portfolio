@@ -1834,6 +1834,7 @@ img {
     bottom:100%;
     animation: droping 6s 1;
     animation-direction: alternate;
+    transition: 0.3s;
 }
 
 @keyframes droping {
@@ -2133,9 +2134,10 @@ img {
 
 #social-container {
     position: absolute;
-    top: -100%;
+    top: 100%;
     width: 120px;
-    left:85%
+    left:85%;
+    transition: 1s;
 }
 
 #social-middle {
