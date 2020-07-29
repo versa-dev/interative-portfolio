@@ -166,8 +166,7 @@ function robby_move(event) {  /* onwheel event function for horizontal move */
                 robbyeyecloseDiv.style.left = "90px"; 
                 setTimeout(() => {
                     document.getElementById("robby-slides").style.left = '-400px';
-                }, 300);
-                // document.getElementById("robby-slides").style.left = "0px";    
+                }, 300);    
             } else if (y < 0){
                 document.getElementById("robby-slides").style.left = "-200px";
                 document.getElementById("robby-slides").style.top = "-200px";
