@@ -148,7 +148,6 @@ function robby_move(event) {  /* onwheel event function for horizontal move */
             if (splash_left > 0) {
                 balloon_left -= splash_left;
                 waterfall_left -= splash_left;
-                waterfall_left -= splash_left;
                 dock_left -= splash_left;
                 splash_left =0;
             }
