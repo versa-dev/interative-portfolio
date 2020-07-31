@@ -137,6 +137,10 @@ function robby_move(event) {  /* onwheel event function for horizontal move */
             waterfall_top += y1/2;
             cloud_top += y1;
             banner_top += y1;
+            if (dock_top < balloonDiv.offsetTop + balloonDiv.offsetHeight) {
+                dock_top = balloonDiv.offsetHeight + balloonDiv.offsetTop;
+                splash_top = dock_top - splashDiv.offsetHeight;
+            }
             
             splashDiv.style.top = splash_top + "px";
             dockDiv.style.top = dock_top + "px";
