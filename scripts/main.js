@@ -130,6 +130,9 @@ function robby_move(event) {  /* onwheel event function for horizontal move */
                 document.getElementById("robby-slides").style.top = '-200px';
                 robbyeyecloseDiv.style.left = "54px";
             }
+            if (dock_top + y1 < balloonDiv.offsetTop + balloonDiv.offsetHeight) {
+                y1 = balloonDiv.offsetTop + balloonDiv.offsetHeight - dock_top;
+            }
             robby_flag = 1;
             socialDiv.style.top = "100%";
             splash_top += y1;
@@ -137,10 +140,7 @@ function robby_move(event) {  /* onwheel event function for horizontal move */
             waterfall_top += y1/2;
             cloud_top += y1;
             banner_top += y1;
-            if (dock_top < balloonDiv.offsetTop + balloonDiv.offsetHeight) {
-                dock_top = balloonDiv.offsetHeight + balloonDiv.offsetTop;
-                splash_top = dock_top - splashDiv.offsetHeight;
-            }
+            
             
             splashDiv.style.top = splash_top + "px";
             dockDiv.style.top = dock_top + "px";
