@@ -21,7 +21,6 @@ var final;
 
 balloonDiv.style.left = 7480 - document.body.clientWidth/2 + "px";          /* set the balloon position when screen resize */
 cloudDiv.style.bottom = -bannerDiv.offsetTop + 3840 + "px";       /* set the position of the contact-cloud */
-console.log(cloudDiv.style.bottom, bannerDiv.offsetTop);
 window.addEventListener("resize", resize);
 window.onwheel = robby_move;           /* add the onwheel event function */
 
@@ -96,7 +95,8 @@ function robby_move(event) {  /* onwheel event function for horizontal move */
             if (robby_flag == 1) {
                 robby_flag = 2;
                 robbycontainerDiv.style.left = robbycontainerDiv.offsetLeft + 200 + "px";
-                socialDiv.style.top = "0%"; /* add the animation of banner of social sites */
+                clouldDiv.style.top = cloudDiv.offsetHeight - balloonDiv.offsetHeight - balloonDiv.offsetTop - document.getElementById("contact-cloud-middle").offsetHeight + "px";
+                socialDiv.style.top = "0%";                  /* add the animation of banner of social sites */
                 document.getElementById("robby-slides").style.left = '-1600px';
                 final = setInterval(() => {
                     setTimeout(() => {
