@@ -111,6 +111,7 @@ function robby_move(event) {  /* onwheel event function for horizontal move */
             robby_flag = 0;
             console.log('------')
             dockDiv.style.top = document.getElementById("vertical-layer").offsetHeight + "px";
+            splashDiv.style.top = document.getElementById("vertical-layer").offsetHeight - splashDiv.offsetHeight + "px";
         } else {    
             if ( y1 < 0 && robby_flag == 2) {
                 robby_flag = 1;
