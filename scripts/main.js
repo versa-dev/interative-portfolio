@@ -91,9 +91,10 @@ function robby_move(event) {  /* onwheel event function for horizontal move */
         } else if( y1 < -100) {
             y1 = -100;
         }
-        if (y1 > 0 && (cloudDiv.offsetTop >= -50)) {
+        if (y1 > 0 && (cloudDiv.offsetTop >=0)) {
             if (robby_flag == 1) {
                 robby_flag = 2;
+                console.log("sadfhaskfhsuihefiufhiu ")
                 robbycontainerDiv.style.left = robbycontainerDiv.offsetLeft + 200 + "px";
                 cloudDiv.style.top = cloudDiv.offsetHeight - balloonDiv.offsetHeight - balloonDiv.offsetTop - document.getElementById("contact-cloud-middle").offsetHeight + "px";
                 socialDiv.style.top = "0%";                  /* add the animation of banner of social sites */
@@ -110,9 +111,10 @@ function robby_move(event) {  /* onwheel event function for horizontal move */
         } else if ((balloonDiv.offsetHeight + balloonDiv.offsetTop >=  dockDiv.offsetTop) && (y1 < 0) && (robby_flag == 1)) {
             robby_flag = 0;
             console.log('------')
-        } else if (robby_flag != 0){    
+        } else {    
             if ( y1 < 0 && robby_flag == 2) {
                 robby_flag = 1;
+                console.log("-----------;;;;;;-------------");
                 clearInterval(final);
                 document.getElementById("robby-slides").style.left = '0px';
                 document.getElementById("robby-slides").style.top = '-200px';
@@ -141,6 +143,7 @@ function robby_move(event) {  /* onwheel event function for horizontal move */
             waterfallDiv.style.top = waterfall_top + "px";
             bannerDiv.style.top = banner_top + "px";
             cloudDiv.style.bottom = -bannerDiv.offsetTop + 3840 + "px";
+            cloudDiv.style.top = cloud_top + "px";
             // console.log(balloonDiv.offsetTop + balloonDiv.offsetHeight, dockDiv.offsetTop)
         }
     } else {
