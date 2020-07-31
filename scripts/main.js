@@ -94,7 +94,6 @@ function robby_move(event) {  /* onwheel event function for horizontal move */
         if (y1 > 0 && (cloudDiv.offsetTop >=0)) {
             if (robby_flag == 1) {
                 robby_flag = 2;
-                console.log("sadfhaskfhsuihefiufhiu ")
                 robbycontainerDiv.style.left = robbycontainerDiv.offsetLeft + 200 + "px";
                 cloudDiv.style.top = cloudDiv.offsetHeight - balloonDiv.offsetHeight - balloonDiv.offsetTop - document.getElementById("contact-cloud-middle").offsetHeight + "px";
                 socialDiv.style.top = "0%";                  /* add the animation of banner of social sites */
@@ -111,10 +110,10 @@ function robby_move(event) {  /* onwheel event function for horizontal move */
         } else if ((balloonDiv.offsetHeight + balloonDiv.offsetTop >=  dockDiv.offsetTop) && (y1 < 0) && (robby_flag == 1)) {
             robby_flag = 0;
             console.log('------')
+            dockDiv.style.top = document.getElementById("vertical-layer").offsetHeight + "px";
         } else {    
             if ( y1 < 0 && robby_flag == 2) {
                 robby_flag = 1;
-                console.log("-----------;;;;;;-------------");
                 clearInterval(final);
                 document.getElementById("robby-slides").style.left = '0px';
                 document.getElementById("robby-slides").style.top = '-200px';
@@ -178,6 +177,7 @@ function robby_move(event) {  /* onwheel event function for horizontal move */
                 document.getElementById("robby-slides").style.left = "-200px";
                 document.getElementById("robby-slides").style.top = "-200px";
                 robbyeyecloseDiv.style.left = "54px";
+                console.log('fhasufhwehrfawfhuaihwirufhasuirhweuifhawiuefhui')
                 setTimeout(() => {
                     document.getElementById("robby-slides").style.top = "-200px";
                     document.getElementById("robby-slides").style.left = '-400px';
