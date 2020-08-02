@@ -13,14 +13,20 @@ var cloudDiv = document.getElementById("contact-cloud");
 var socialDiv = document.getElementById("social-container");
 var fireworkDiv = document.getElementById("fireworks-container");
 var bannerDiv = document.getElementById("banners-container");
-
+var cloudDiv_5 = document.getElementById("cloud-5");
+var cloudDiv_6 = document.getElementById("cloud-6");
+var cloudDiv_7 = document.getElementById("cloud-7");
+var cloudDiv_8 = document.getElementById("cloud-8");
+var cloudDiv_9 = document.getElementById("cloud-9");
+var contactDiv = document.getElementById("contact-center");
 var robby_flag = 0;
 var final;
 
 
 
 balloonDiv.style.left = 7480 - document.body.clientWidth/2 + "px";          /* set the balloon position when screen resize */
-cloudDiv.style.bottom = -bannerDiv.offsetTop + 3840 + "px";       /* set the position of the contact-cloud */
+cloudDiv.style.bottom = -bannerDiv.offsetTop + 3840 + "px";
+contactDiv.style.bottom = -bannerDiv.offsetTop + 3840 + document.getElementById("contact-cloud-middle").offsetHeight + "px";       /* set the position of the contact-cloud */
 window.addEventListener("resize", resize);
 window.onwheel = robby_move;           /* add the onwheel event function */
 
@@ -48,6 +54,7 @@ robby_drop();
 function resize() {
     balloonDiv.style.left = 7480 + dockDiv.offsetLeft - document.body.clientWidth/2 + "px";
     cloudDiv.style.bottom = -bannerDiv.offsetTop + 3840 + "px";
+    contactDiv.style.bottom = -bannerDiv.offsetTop + 3840 + document.getElementById("contact-cloud-middle").offsetHeight + "px";
 }
 
 // banner animation when preloading
@@ -74,12 +81,25 @@ function robby_move(event) {  /* onwheel event function for horizontal move */
     var dock_left = dockDiv.offsetLeft;
     var waterfall_left = waterfallDiv.offsetLeft;
     var balloon_left = balloonDiv.offsetLeft;
+    var cloud5_left = cloudDiv_5.offsetLeft;
+    var cloud6_left = cloudDiv_6.offsetLeft;
+    var cloud7_left = cloudDiv_7.offsetLeft;
+    var cloud8_left = cloudDiv_8.offsetLeft;
+    var cloud9_left = cloudDiv_9.offsetLeft;
     var splash_top = splashDiv.offsetTop;
     var dock_top = dockDiv.offsetTop;
     var waterfall_top = waterfallDiv.offsetTop;
     var balloon_top = balloonDiv.offsetTop;
     var cloud_top = cloudDiv.offsetTop;
     var banner_top = bannerDiv.offsetTop;
+    var cloud5_top = cloudDiv_5.offsetTop;
+    var cloud6_top = cloudDiv_6.offsetTop;
+    var cloud7_top = cloudDiv_7.offsetTop;
+    var cloud8_top = cloudDiv_8.offsetTop;
+    var cloud9_top = cloudDiv_9.offsetTop;
+    var contact_top = contactDiv.offsetTop;
+    
+
     var y;
     var y1;
     var i = 0;
@@ -140,15 +160,25 @@ function robby_move(event) {  /* onwheel event function for horizontal move */
             waterfall_top += y1/2;
             cloud_top += y1;
             banner_top += y1;
+            contact_top += y1;
+            cloud5_top += y1/10;
+            cloud6_top += y1/10;
+            cloud7_top += y1/10;
+            cloud8_top += y1/10;
+            cloud9_top += y1/10;            
             
-            
+            contactDiv.style.top = contact_top + "px";
             splashDiv.style.top = splash_top + "px";
             dockDiv.style.top = dock_top + "px";
             waterfallDiv.style.top = waterfall_top + "px";
             bannerDiv.style.top = banner_top + "px";
             cloudDiv.style.bottom = -bannerDiv.offsetTop + 3840 + "px";
             cloudDiv.style.top = cloud_top + "px";
-            // console.log(balloonDiv.offsetTop + balloonDiv.offsetHeight, dockDiv.offsetTop)
+            cloudDiv_5.style.top =cloud5_top + "px";
+            cloudDiv_6.style.top =cloud6_top + "px";
+            cloudDiv_7.style.top =cloud7_top + "px";
+            cloudDiv_8.style.top =cloud8_top + "px";
+            cloudDiv_9.style.top =cloud9_top + "px";
         }
     } else {
         if (event.deltaY < 0 && splash_left >= 0){
@@ -197,6 +227,16 @@ function robby_move(event) {  /* onwheel event function for horizontal move */
         waterfall_left -= y;
         splash_left -= y;
         dock_left -= y;
+        cloud5_left -= y/10;
+        cloud6_left -= y/10;
+        cloud7_left -= y/10;
+        cloud8_left -= y/10;
+        cloud9_left -= y/10; 
+        cloudDiv_5.style.left =cloud5_left + "px";
+        cloudDiv_6.style.left =cloud6_left + "px";
+        cloudDiv_7.style.left =cloud7_left + "px";
+        cloudDiv_8.style.left =cloud8_left + "px";
+        cloudDiv_9.style.left =cloud9_left + "px"; 
         splashDiv.style.left = splash_left + "px";
         dockDiv.style.left = dock_left + "px";
         waterfallDiv.style.left = waterfall_left + "px";
