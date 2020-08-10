@@ -19,8 +19,13 @@ var cloudDiv_7 = document.getElementById("cloud-7");
 var cloudDiv_8 = document.getElementById("cloud-8");
 var cloudDiv_9 = document.getElementById("cloud-9");
 var contactDiv = document.getElementById("contact-center");
+var buildingDiv = document.getElementById("buildings-container");
+var experienceDiv = document.getElementById("experience-2-container");
+var skill_1_container = document.getElementById("skill-1-container");
+var ribbon_2_1 = document.getElementById("ribbon-2-1");
 var robby_flag = 0;
 var final;
+
 
 
 
@@ -78,6 +83,10 @@ function robby_drop() {
 function robby_move(event) {  /* onwheel event function for horizontal move */
     
     var splash_left = splashDiv.offsetLeft;
+    var skill_1_left = skill_1_container.offsetLeft;
+    var ribbon2_left = ribbon_2_1.offsetLeft;
+    var buildings_left = buildingDiv.offsetLeft;
+    var experience_left = experienceDiv.offsetLeft;
     var dock_left = dockDiv.offsetLeft;
     var waterfall_left = waterfallDiv.offsetLeft;
     var balloon_left = balloonDiv.offsetLeft;
@@ -87,6 +96,10 @@ function robby_move(event) {  /* onwheel event function for horizontal move */
     var cloud8_left = cloudDiv_8.offsetLeft;
     var cloud9_left = cloudDiv_9.offsetLeft;
     var splash_top = splashDiv.offsetTop;
+    var skill_1_top = skill_1_container.offsetTop;
+    var ribbon2_top = ribbon_2_1.offsetTop;
+    var buildings_top = buildingDiv.offsetTop;
+    var experience_top = experienceDiv.offsetTop;
     var dock_top = dockDiv.offsetTop;
     var waterfall_top = waterfallDiv.offsetTop;
     var balloon_top = balloonDiv.offsetTop;
@@ -157,6 +170,10 @@ function robby_move(event) {  /* onwheel event function for horizontal move */
             socialDiv.style.top = "100%";
             splash_top += y1;
             dock_top += y1;
+            skill_1_top += y1;
+            ribbon2_top += y1;
+            buildings_top += y1;
+            experience_top += y1;
             waterfall_top += y1/2;
             cloud_top += y1;
             banner_top += y1;
@@ -179,6 +196,10 @@ function robby_move(event) {  /* onwheel event function for horizontal move */
             cloudDiv_7.style.top =cloud7_top + "px";
             cloudDiv_8.style.top =cloud8_top + "px";
             cloudDiv_9.style.top =cloud9_top + "px";
+            skill_1_container.style.top = skill_1_top + "px";
+            ribbon_2_1.style.top = ribbon2_top + "px";
+            buildingDiv.style.top = buildings_top + "px";
+            experienceDiv.style.top = experience_top + "px";
         }
     } else {
         if (event.deltaY < 0 && splash_left >= 0){
@@ -186,6 +207,10 @@ function robby_move(event) {  /* onwheel event function for horizontal move */
                 balloon_left -= splash_left;
                 waterfall_left -= splash_left;
                 dock_left -= splash_left;
+                skill_1_left -= splash_left;
+                ribbon2_left -= splash_left;
+                buildings_left -= splash_left;
+                experience_left -= splash_left;
                 splash_left =0;
             }
             y = 0;
@@ -195,7 +220,11 @@ function robby_move(event) {  /* onwheel event function for horizontal move */
                 dock_left += dis;
                 waterfall_left += dis;
                 balloon_left += dis;
-                splash_left += dis;  
+                splash_left += dis;
+                skill_1_left += dis;
+                ribbon2_left += dis;
+                buildings_left += dis;
+                experience_left += dis;
             }
             robby_flag = 1;    
             y = 0;
@@ -227,6 +256,10 @@ function robby_move(event) {  /* onwheel event function for horizontal move */
         waterfall_left -= y;
         splash_left -= y;
         dock_left -= y;
+        skill_1_left -= y;
+        ribbon2_left -= y;
+        buildings_left -= y;
+        experience_left -= y;
         cloud5_left -= y/10;
         cloud6_left -= y/10;
         cloud7_left -= y/10;
@@ -241,6 +274,9 @@ function robby_move(event) {  /* onwheel event function for horizontal move */
         dockDiv.style.left = dock_left + "px";
         waterfallDiv.style.left = waterfall_left + "px";
         balloonDiv.style.left = balloon_left + "px";
+        skill_1_container.style.left = skill_1_left + "px";
+        ribbon_2_1.style.left = ribbon2_left + "px";
+        experienceDiv.style.left = experience_left + "px";
+        buildingDiv.style.left = buildings_left + "px";
     }
 }
-
