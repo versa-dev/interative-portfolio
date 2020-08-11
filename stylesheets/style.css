@@ -122,8 +122,12 @@ body {
     position:absolute
 }
 
+.building {
+    transition: 1.5s;
+}
+
 #building-1 {
-    left: 0;
+    left: 1000px;
     bottom: 0;
     width: 190px;
     height: 500px;
@@ -131,7 +135,7 @@ body {
 }
 
 #building-2 {
-    left: 305px;
+    left: 1305px;
     bottom: 0;
     width: 275px;
     height: 495px;
@@ -139,7 +143,7 @@ body {
 }
 
 #building-3 {
-    left: 710px;
+    left: 1710px;
     bottom: 0;
     width: 190px;
     height: 500px;
@@ -243,7 +247,9 @@ body {
 .chain-block-and-string-container {
     position: absolute;
     width: 100px;
-    height:100%
+    height:100%;
+    bottom: 100%;
+    transition: 1s;    
 }
 
 .coral-a, .coral-b {
@@ -844,13 +850,14 @@ body {
 
 .experience-text-container {
     position: absolute;
-    bottom: 185px;
+    bottom: 100%;
     width: 510px;
     background-color: #444;
     padding: 40px;
     border-style: solid;
     border-width: 10px;
-    border-color:#777
+    border-color:#777;
+    transition: 1s;
 }
 
 #email-button, #fence {
@@ -942,7 +949,7 @@ body {
     height: 93px;
     overflow: hidden;
     background-image:url(../images/fish.png);
-    transition: 1s
+    transition: 0.7s
 }
 
 .fish-eyes {
@@ -1513,41 +1520,55 @@ img {
 
 #piechart-squid-front {
     position: absolute;
+    opacity: 0;
     left: 0;
     top: 0;
     width: 300px;
     height: 300px;
-    background-image:url(../images/piechart-front.png)
+    background-image:url(../images/piechart-front.png);
+    transition: 0.5s linear 0.5s;
 }
 
 #piechart-squid-text-graphic-1 {
     left: 25px;
-    top:98px
+    top:98px;
+    opacity: 0;
+    transition: 0.8s linear 1.8s;
 }
 
 #piechart-squid-text-graphic-2 {
     left: 42px;
-    top:150px
+    top:150px;
+    opacity: 0;
+    transition: 0.8s linear 2s;
 }
 
 #piechart-squid-text-animation-1 {
     left: 191px;
-    top:155px
+    top:155px;
+    opacity: 0;
+    transition: 0.8s linear 1.4s;
 }
 
 #piechart-squid-text-animation-2 {
     left: 218px;
-    top:193px
+    top:193px;
+    opacity: 0;
+    transition: 0.8s linear 1.6s;
 }
 
 #piechart-squid-text-code-1 {
     left: 220px;
-    top:67px
+    opacity: 0;
+    top:67px;
+    transition: 0.8s linear 1s;
 }
 
 #piechart-squid-text-code-2 {
     left: 221px;
-    top:105px
+    top:105px;
+    opacity: 0;
+    transition: 0.8s linear 1.2s;
 }
 
 .piechart-text-a, .piechart-text-b {
@@ -2179,10 +2200,11 @@ img {
 }
 
 #squid {
-    left: 430px;
+    left: 1000px;
     bottom: 10px;
     width: 570px;
-    height:600px
+    height:600px;
+    transition: 0.5s;
 }
 
 #squid-body {

@@ -26,9 +26,12 @@ var ribbon_2_1 = document.getElementById("ribbon-2-1");
 var fish_list = document.getElementsByClassName("fish");
 var building_list = document.getElementsByClassName("building");
 var hand_open_list = document.getElementsByClassName("squid-hand-open");
-var hand_close_list = document.getElementsByClassName*("squid-hand-close");
+var hand_close_list = document.getElementsByClassName("squid-hand-close");
 var chain = document.getElementsByClassName("chain-block-and-string-container");
+var experienceText = document.getElementById("experience-text-container-2");
+var squidDiv = document.getElementById("squid");
 var robby_flag = 0;
+var interval_flag = 0;
 var final;
 
 // initial position of the fishes in skill-1-container
@@ -50,6 +53,10 @@ for (let i=13; i<17; i++) {
     fish_list[i].style.top = 300 + 'px';
 }
 
+// initial opacity of the hand_close_list
+for (let i=0; i<4; i++) {
+    hand_close_list[i].style.opacity = 0;
+}
 
 
 
@@ -291,20 +298,59 @@ function robby_move(event) {  /* onwheel event function for horizontal move */
                     fish_list[i].style.left = (i-5)*150 + 'px';
                     fish_list[i].style.top = 100 + 'px';
                 }
-            }, 500);
+            }, 300);
             setTimeout(() => {
                 for (let i=10; i<13; i++) {
                     fish_list[i].style.left = (i-10)*150 + 'px';
                     fish_list[i].style.top = 200 + 'px';
                 }
-            }, 1000);
+            }, 600);
             setTimeout(() => {
                 for (let i=13; i<17; i++) {
                     fish_list[i].style.left = (i-13)*150 + 'px';
                     fish_list[i].style.top = 300 + 'px';
                 }
-            }, 1500);
-            
+            }, 900);       
+        }
+
+        // animation of the buildings in the buildings-container
+        if (buildingDiv.offsetLeft + buildingDiv.offsetWidth < document.body.offsetWidth) {
+            building_list[0].style.left = 0;
+            setTimeout(() => {
+                building_list[1].style.left = '310px';
+            }, 500);
+            setTimeout(() => {
+                building_list[2].style.left = '720px';
+            },1000)
+        }
+
+        // animation of the elements in the experience-2-container
+        if (experienceDiv.offsetLeft + experienceDiv.offsetWidth < document.body.offsetWidth && interval_flag == 0) {
+            interval_flag = 1;
+            document.getElementById("piechart-squid-front").style.opacity = 1;
+            document.getElementById("piechart-squid-text-code-1").style.opacity = 1;
+            document.getElementById("piechart-squid-text-code-2").style.opacity = 1;
+            document.getElementById("piechart-squid-text-animation-1").style.opacity = 1;
+            document.getElementById("piechart-squid-text-animation-2").style.opacity = 1;
+            document.getElementById("piechart-squid-text-graphic-1").style.opacity = 1;
+            document.getElementById("piechart-squid-text-graphic-2").style.opacity = 1;
+            squidDiv.style.left = '430px'
+            chain[0].style.bottom = 185 + experienceText.offsetHeight + 'px';
+            experienceText.style.bottom = '185px';
+            setInterval(() => {
+                setTimeout(() => {
+                    setTimeout(() => {
+                        for (let i=0; i<4; i++) {
+                            hand_close_list[i].style.opacity = 1;
+                            hand_open_list[i].style.opacity = 0;
+                        }
+                    },400)
+                    for (let i=0; i<4; i++) {
+                        hand_close_list[i].style.opacity = 0;
+                        hand_open_list[i].style.opacity = 1;
+                    }
+                },800)
+            }, 800)
         }
         // horizontal movement of robby
         balloon_left -= y;
