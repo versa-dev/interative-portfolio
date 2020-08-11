@@ -2110,7 +2110,7 @@ img {
 .skill-measurement-line {
     position: absolute;
     width: 1px;
-    height: 33%;
+    height: 493px;
     background-color:#0072bc
 }
 
@@ -2138,6 +2138,7 @@ img {
 
 #social-container {
     position: absolute;
+    z-index: 1;
     top: 100%;
     width: 120px;
     left:85%;

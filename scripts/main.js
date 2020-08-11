@@ -23,6 +23,13 @@ var buildingDiv = document.getElementById("buildings-container");
 var experienceDiv = document.getElementById("experience-2-container");
 var skill_1_container = document.getElementById("skill-1-container");
 var ribbon_2_1 = document.getElementById("ribbon-2-1");
+var fish_list = document.getElementsByClassName("fish");
+// var building_list = document.getElementsByClassName("building");
+// var hand_open_list = document.getElementsByClassName("squid-hand-open");
+// var hand_close_list = document.getElementsByClassName*("squid-hand-close");
+// var chain = document.getElementsByClassName("chain-block-and-string-container");
+// var experienceDiv = document.getElementById("experience-text-container-2");
+// console.log(hand_close_list, hand_open_list, chain, experienceDiv)
 var robby_flag = 0;
 var final;
 
@@ -166,6 +173,7 @@ function robby_move(event) {  /* onwheel event function for horizontal move */
             if (dock_top + y1 < balloonDiv.offsetTop + balloonDiv.offsetHeight) {
                 y1 = balloonDiv.offsetTop + balloonDiv.offsetHeight - dock_top;
             }
+            // vertical movement of robby
             robby_flag = 1;
             socialDiv.style.top = "100%";
             splash_top += y1;
@@ -252,6 +260,7 @@ function robby_move(event) {  /* onwheel event function for horizontal move */
                 document.getElementById("robby-slides").style.left = "0px";  
             }
         }
+        // horizontal movement of robby
         balloon_left -= y;
         waterfall_left -= y;
         splash_left -= y;
