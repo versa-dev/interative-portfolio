@@ -24,14 +24,31 @@ var experienceDiv = document.getElementById("experience-2-container");
 var skill_1_container = document.getElementById("skill-1-container");
 var ribbon_2_1 = document.getElementById("ribbon-2-1");
 var fish_list = document.getElementsByClassName("fish");
-// var building_list = document.getElementsByClassName("building");
-// var hand_open_list = document.getElementsByClassName("squid-hand-open");
-// var hand_close_list = document.getElementsByClassName*("squid-hand-close");
-// var chain = document.getElementsByClassName("chain-block-and-string-container");
-// var experienceDiv = document.getElementById("experience-text-container-2");
-// console.log(hand_close_list, hand_open_list, chain, experienceDiv)
+var building_list = document.getElementsByClassName("building");
+var hand_open_list = document.getElementsByClassName("squid-hand-open");
+var hand_close_list = document.getElementsByClassName*("squid-hand-close");
+var chain = document.getElementsByClassName("chain-block-and-string-container");
 var robby_flag = 0;
 var final;
+
+// initial position of the fishes in skill-1-container
+for (let i=0; i<5; i++) {
+    fish_list[i].style.left = 800 + i*150 + 'px';
+    fish_list[i].style.top = 0;
+    
+}
+for (let i=5; i<10; i++) {
+    fish_list[i].style.left = 800 + (i-5)*150 + 'px';
+    fish_list[i].style.top = 100 + 'px';
+}
+for (let i=10; i<13; i++) {
+    fish_list[i].style.left = 800 + (i-10)*150 + 'px';
+    fish_list[i].style.top = 200 + 'px';
+}
+for (let i=13; i<17; i++) {
+    fish_list[i].style.left = 800 + (i-13)*150 + 'px';
+    fish_list[i].style.top = 300 + 'px';
+}
 
 
 
@@ -109,7 +126,6 @@ function robby_move(event) {  /* onwheel event function for horizontal move */
     var experience_top = experienceDiv.offsetTop;
     var dock_top = dockDiv.offsetTop;
     var waterfall_top = waterfallDiv.offsetTop;
-    var balloon_top = balloonDiv.offsetTop;
     var cloud_top = cloudDiv.offsetTop;
     var banner_top = bannerDiv.offsetTop;
     var cloud5_top = cloudDiv_5.offsetTop;
@@ -123,6 +139,8 @@ function robby_move(event) {  /* onwheel event function for horizontal move */
     var y;
     var y1;
     var i = 0;
+
+    
     
     if (((Math.abs(document.body.clientWidth/2 - balloonDiv.offsetWidth/2 - balloonDiv.offsetLeft) <= 2)) && robby_flag != 0) {
         y1 = event.deltaY; 
@@ -259,6 +277,34 @@ function robby_move(event) {  /* onwheel event function for horizontal move */
                 document.getElementById("robby-slides").style.top = "0px"; 
                 document.getElementById("robby-slides").style.left = "0px";  
             }
+        }
+
+        // animation of the fishes in skill-1-container 
+        if (skill_1_container.offsetLeft + skill_1_container.offsetWidth < document.body.offsetWidth) {
+            
+            for (let i=0; i<5; i++) {
+                fish_list[i].style.left = i*150 + 'px';
+                fish_list[i].style.top = 0;
+            }
+            setTimeout(() => {
+                for (let i=5; i<10; i++) {
+                    fish_list[i].style.left = (i-5)*150 + 'px';
+                    fish_list[i].style.top = 100 + 'px';
+                }
+            }, 500);
+            setTimeout(() => {
+                for (let i=10; i<13; i++) {
+                    fish_list[i].style.left = (i-10)*150 + 'px';
+                    fish_list[i].style.top = 200 + 'px';
+                }
+            }, 1000);
+            setTimeout(() => {
+                for (let i=13; i<17; i++) {
+                    fish_list[i].style.left = (i-13)*150 + 'px';
+                    fish_list[i].style.top = 300 + 'px';
+                }
+            }, 1500);
+            
         }
         // horizontal movement of robby
         balloon_left -= y;
