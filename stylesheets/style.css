@@ -2083,7 +2083,7 @@ img {
     position: absolute;
     bottom: 0;
     width: 1000px;
-    height:90%
+    height:70%
 }
 
 #skill-2-container {
@@ -2132,7 +2132,7 @@ img {
 .skill-measurement-line {
     position: absolute;
     width: 1px;
-    height: 493px;
+    height: 485px;
     background-color:#0072bc
 }
 
